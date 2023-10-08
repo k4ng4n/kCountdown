@@ -1,0 +1,72 @@
+<Ui xmlns="http://www.runewaker.com/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.runewaker.com/ .. \ .. \WorldXML\UI.xsd">
+  <Frame name="kCountdownUpdater" parent="UIParent">
+    <Scripts>
+			<OnUpdate>
+				kCountdown.OnUpdate(elapsedTime)
+			</OnUpdate>
+			<OnEvent>
+				kCountdown.OnEvent(this,event,arg1,arg2,arg3,arg4)
+			</OnEvent>
+			<OnLoad>
+				kCountdown.OnLoad(this)
+			</OnLoad>
+		</Scripts>
+  </Frame>
+  <Frame name="kCountdownFrame" parent="UIParent" frameStrata="HIGH" hidden="true">
+		<Size>
+			<AbsDimension y="256" x="256"/>
+		</Size>
+		<Anchors>
+			<Anchor point="TOP">
+				<Offset>
+					<AbsDimension x="0" y="150"/>
+				</Offset>
+			</Anchor>
+		</Anchors>
+		<Layers>
+			<Layer level="ARTWORK">
+				<Texture name="kCountdownTexture">
+					<Size>
+						<AbsDimension x="64" y="64"/>
+					</Size>
+					<Anchors>
+						<Anchor point="CENTER">
+							<Offset>
+								<AbsDimension x="0" y="8"/>
+							</Offset>
+						</Anchor>
+					</Anchors>
+				</Texture>
+			</Layer>
+		</Layers>
+	</Frame>
+
+  <Button name="kCountdown_Minimap" hidden="false" inherits="MinimapButtonTemplate" parent="UIParent">
+    <Size>
+      <AbsDimension y="24" x="24"/>
+    </Size>
+    <Anchors>
+      <Anchor point="TOP" relativeTo="MinimapViewFrame" relativePoint="TOP">
+      </Anchor>
+    </Anchors>
+    <Scripts>
+      <OnClick>
+        kCountdown.StartStopCountdown()
+      </OnClick>
+      <OnEnter>
+        GameTooltip:SetOwner(this, "ANCHOR_BOTTOMRIGHT", 0, 0);
+        GameTooltip:SetText("15s CD in party chat!")
+        GameTooltip:AddSeparator();
+        GameTooltip:AddLine(UI_MINIMAPBUTTON_MOVE, 0, 0.75, 0.95)
+        GameTooltip:AddLine("Made by Kangan", 0.4, 0.4, 0.4)
+        GameTooltip:Show();
+      </OnEnter>
+      <OnLeave>
+        GameTooltip:Hide()
+      </OnLeave>
+    </Scripts>
+    <NormalTexture file="Interface/addons/kCountdown/texture/kCd_icon.png"/>
+    <PushedTexture file="Interface/addons/kCountdown/texture/kCd_icon.png"/>
+    <HighlightTexture file="Interface/addons/kCountdown/texture/kCd_icon.png" alphaMode="ADD"/>
+  </Button>
+</Ui>
