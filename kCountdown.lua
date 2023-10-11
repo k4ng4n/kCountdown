@@ -3,7 +3,8 @@ local me = {
   author = "Kangan",
   vars = {
     updateSpeed = 1,
-    fadeTime = 3,
+    fadeTime = 2,
+    sizeTime = 1,
     cdTime = 16,
     cdLeftTime = 16,
     cdRunning = false,
@@ -22,7 +23,8 @@ me.OnEvent = function (this,event,arg1,arg2,arg3,arg4)
       local number = string.sub(arg1, i+1, j-1)
       kCountdownTexture:SetTexture("interface/addons/kCountdown/texture/"..number..".png")
       PlaySoundByPath("Interface/Addons/kCountdown/warn.wav");
-      me.vars.fadeTime = 3
+      me.vars.fadeTime = 2
+      me.vars.sizeTime = 1
     end
   end
 end
@@ -30,6 +32,7 @@ end
 me.OnUpdate = function (elapsedTime)
   me.vars.updateSpeed = me.vars.updateSpeed - elapsedTime
   me.vars.fadeTime = me.vars.fadeTime - elapsedTime
+  me.vars.sizeTime = me.vars.sizeTime - elapsedTime
 
   if me.vars.updateSpeed <= 0 and me.vars.cdRunning then
     me.vars.updateSpeed = 1
@@ -37,8 +40,15 @@ me.OnUpdate = function (elapsedTime)
   end
 
   if (me.vars.fadeTime >= 0) then
-    local alphaVal = me.vars.fadeTime/3
+    local alphaVal = me.vars.fadeTime/2
     kCountdownFrame:SetAlpha(alphaVal)
+  end
+
+  if (me.vars.sizeTime >= 0) then
+    local maxSize = 150
+    local sizeToSet = me.vars.sizeTime * maxSize
+    if sizeToSet < 92 then sizeToSet = 92 end
+    kCountdownTexture:SetSize(sizeToSet, sizeToSet)
   end
 
 end

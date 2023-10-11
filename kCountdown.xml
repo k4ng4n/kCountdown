@@ -19,7 +19,7 @@
 		<Anchors>
 			<Anchor point="TOP">
 				<Offset>
-					<AbsDimension x="0" y="150"/>
+					<AbsDimension x="0" y="200"/>
 				</Offset>
 			</Anchor>
 		</Anchors>
@@ -27,7 +27,7 @@
 			<Layer level="ARTWORK">
 				<Texture name="kCountdownTexture">
 					<Size>
-						<AbsDimension x="64" y="64"/>
+						<AbsDimension x="150" y="150"/>
 					</Size>
 					<Anchors>
 						<Anchor point="CENTER">
