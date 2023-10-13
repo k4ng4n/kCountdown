@@ -80,6 +80,12 @@ me.test = function ()
 end
 
 me.StartStopCountdown = function ()
+  if (GetNumRaidMembers() == 0 and GetNumPartyMembers() == 0) then
+    SendWarningMsg("You are not in party!")
+    me.vars.cdRunning = false
+    return
+  end
+
   if (me.vars.cdRunning) then
     me.vars.cdRunning = false
 
