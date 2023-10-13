@@ -95,7 +95,6 @@ me.StartStopCountdown = function ()
   else
     me.vars.cdLeftTime = me.vars.cdTime
     me.vars.cdRunning = true
-    kCountdownFrame:Show()
     SendChatMessage("|H|h|cffff0000Starting kCountdown|r|h", "PARTY")
   end
   me.vars.updateSpeed = 1

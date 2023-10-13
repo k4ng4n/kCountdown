@@ -12,7 +12,7 @@
 			</OnLoad>
 		</Scripts>
   </Frame>
-  <Frame name="kCountdownFrame" parent="UIParent" frameStrata="HIGH" hidden="true">
+  <Frame name="kCountdownFrame" parent="UIParent" frameStrata="HIGH">
 		<Size>
 			<AbsDimension y="256" x="256"/>
 		</Size>
