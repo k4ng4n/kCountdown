@@ -21,7 +21,7 @@ me.OnEvent = function (this,event,arg1,arg2,arg3,arg4)
       local i, j = string.find(arg1, ":%d+|")
       if (not i) then return end
       local number = string.sub(arg1, i+1, j-1)
-      kCountdownTexture:SetTexture("interface/addons/kCountdown/texture/"..number..".png")
+      kCountdownTexture:SetTexture("interface/addons/kCountdown/texture/"..number..".tga")
       PlaySoundByPath("Interface/Addons/kCountdown/warn.wav");
       me.vars.fadeTime = 2
       me.vars.sizeTime = 1
@@ -45,9 +45,9 @@ me.OnUpdate = function (elapsedTime)
   end
 
   if (me.vars.sizeTime >= 0) then
-    local maxSize = 150
+    local maxSize = 188
     local sizeToSet = me.vars.sizeTime * maxSize
-    if sizeToSet < 92 then sizeToSet = 92 end
+    if sizeToSet < 124 then sizeToSet = 124 end
     kCountdownTexture:SetSize(sizeToSet, sizeToSet)
   end
 

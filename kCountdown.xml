@@ -27,7 +27,7 @@
 			<Layer level="ARTWORK">
 				<Texture name="kCountdownTexture">
 					<Size>
-						<AbsDimension x="150" y="150"/>
+						<AbsDimension x="188" y="188"/>
 					</Size>
 					<Anchors>
 						<Anchor point="CENTER">
